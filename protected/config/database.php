@@ -6,7 +6,7 @@ return array(
 	// uncomment the following lines to use a MySQL database
 	'connectionString' => 'mysql:host=localhost;dbname=yii_blog',
 	'emulatePrepare' => true,
-	'username' => 'root',
-	'password' => '',
+	'username' => 'blog_admin',
+	'password' => '1234Az',
 	'charset' => 'utf8',
 );
