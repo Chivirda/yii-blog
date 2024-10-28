@@ -2,19 +2,21 @@
 
 class m241023_171631_create_users_table extends CDbMigration
 {
-	public function up()
+	public function up(): void
 	{
-		$this->createTable('tlb_user', array(
+		$this->createTable('tbl_user', array(
 			'id' => 'pk',
 			'username' => 'string NOT NULL',
-			'email' => 'string NOT NULL',
+			'email' => 'string NOT NULL UNIQUE',
 			'password' => 'string NOT NULL',
+			'created_at' => 'timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP',
+            'updated_at' => 'timestamp NULL DEFAULT NULL ON UPDATE CURRENT_TIMESTAMP',
 		));
 	}
 
-	public function down()
+	public function down(): void
 	{
-		$this->dropTable('users');
+		$this->dropTable('tbl_user');
 	}
 
 	/*

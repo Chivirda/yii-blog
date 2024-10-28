@@ -49,5 +49,9 @@ $this->breadcrumbs=array(
 		<?php echo CHtml::submitButton('Login'); ?>
 	</div>
 
+	<div class="row">
+		<a href="<?php echo Yii::app()->createUrl('user/register'); ?>" class="forgot">Ещё не зарегистрированы?</a>
+	</div>
+
 <?php $this->endWidget(); ?>
 </div><!-- form -->
