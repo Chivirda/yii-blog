@@ -5,6 +5,18 @@
 
 // This is the main Web application configuration. Any writable
 // CWebApplication properties can be configured here.
+
+// привык так дебажить в Laravel и не только
+if (!function_exists('dd')) {
+	function dd($data)
+	{
+		echo '<pre>';
+		var_dump($data);
+		echo '</pre>';
+		die();
+	}
+}
+
 return array(
 	'basePath' => dirname(__FILE__) . DIRECTORY_SEPARATOR . '..',
 	'name' => 'Тестовый блог',
@@ -43,6 +55,7 @@ return array(
 		// uncomment the following to enable URLs in path-format
 		'urlManager' => array(
 			'urlFormat' => 'path',
+			'showScriptName' => false,
 			'rules' => array(
 				'<controller:\w+>/<id:\d+>' => '<controller>/view',
 				'<controller:\w+>/<action:\w+>/<id:\d+>' => '<controller>/<action>',
@@ -67,10 +80,10 @@ return array(
 				),
 				// uncomment the following to show log messages on web pages
 				/*
-							array(
-								'class'=>'CWebLogRoute',
-							),
-							*/
+										array(
+											'class'=>'CWebLogRoute',
+										),
+										*/
 			),
 		),
 

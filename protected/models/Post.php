@@ -32,14 +32,23 @@ class Post extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('title, content, author_id, created_at', 'required'),
+			array('title, content', 'required'),
 			array('author_id', 'numerical', 'integerOnly'=>true),
 			array('title', 'length', 'max'=>255),
-			array('updated_at', 'safe'),
+			array('created_at, updated_at', 'safe'),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
 			array('id, title, content, author_id, created_at, updated_at', 'safe', 'on'=>'search'),
 		);
+	}
+
+	public function beforeSave() {
+		if($this->isNewRecord) {
+			$this->created_at = date('Y-m-d H:i:s');
+			$this->author_id = Yii::app()->user->id;
+		}
+		$this->updated_at = date('Y-m-d H:i:s');
+		return parent::beforeSave();
 	}
 
 	/**

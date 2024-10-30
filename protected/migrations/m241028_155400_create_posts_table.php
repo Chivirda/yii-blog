@@ -10,8 +10,8 @@ class m241028_155400_create_posts_table extends CDbMigration
             'content' => 'text NOT NULL',
             'author_id' => 'integer NOT NULL',
             'created_at' => 'timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP',
-            'updated_at' => 'timestamp NULL DEFAULT NULL ON UPDATE CURRENT_TIMESTAMP',
-            'FOREIGN KEY (author_id) REFERENCES tbl_user(id) ON DELETE CASCADE', 
+            'updated_at' => 'timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP',
+			'FOREIGN KEY (author_id) REFERENCES tbl_user(id) ON DELETE CASCADE',
 		));
 	}
 
