@@ -6,7 +6,7 @@ class m241023_171631_create_users_table extends CDbMigration
 	{
 		$this->createTable('tbl_user', array(
 			'id' => 'pk',
-			'username' => 'string NOT NULL',
+			'username' => 'string NOT NULL UNIQUE',
 			'email' => 'string NOT NULL UNIQUE',
 			'password' => 'string NOT NULL',
 			'created_at' => 'timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP',
